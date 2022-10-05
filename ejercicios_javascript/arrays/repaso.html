@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>JavaScript For Loop</h2>
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+    <script>
+      function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      function getRndArray(size) {
+        let result = [];
+        for (let i = 0; i < size; i++) {
+          result.push(getRndInteger(-10, 10));
+        }
+        return result;
+      }
+
+      /**
+       * Devuelve el primer número del array 'numeros' mayor o igual a 5
+       */
+
+      function getFirstNumberOver4(array) {
+        for (i = 0; i < array.length; i++) {
+          if (array[i] >= 5) {
+            return array[i];
+          }
+        }
+      }
+
+      function contieneNumeroSuperiorA4(array) {
+        for (i = 0; i < array.length; i++) {
+          if (array[i] >= 5) {
+            return true;
+          }
+        } //Si llego a esta linea, es que en array no había ningún número mayor o igual a 5
+        return false;
+      }
+
+      let numeros = getRndArray(20);
+
+      let x = getFirstNumberOver4(numeros);
+      let y = contieneNumeroSuperiorA4(numeros);
+      document.getElementById("demo").innerHTML =
+        "Array de numeros: [" + numeros + "]";
+      document.getElementById("demo2").innerHTML =
+        "Primer número mayor a 4: [" + x + "]";
+    </script>
+  </body>
+</html>
