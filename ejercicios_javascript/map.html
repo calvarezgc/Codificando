@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Map Objects</title>
+  </head>
+  <body>
+    <h2>JavaScript Map Objects</h2>
+    <p>Using Map.set():</p>
+
+    <p id="demo"></p>
+
+    <script>
+      // Create a Map
+      const months = new Map();
+
+      // Set Map Values
+      months.set(1, "Enero");
+      months.set(2, "Febrero");
+      months.set(3, "Marzo");
+      months.set(4, "Abril");
+
+      document.getElementById("demo").innerHTML = months.get(1);
+    </script>
+  </body>
+</html>
