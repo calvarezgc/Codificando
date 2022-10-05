@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON - Ejercicio 1</title>
+  </head>
+  <body>
+    <h2>Creating an Object from a JSON String</h2>
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+    <script>
+      const txt2 =
+        '{"employees":[{"firstName":"John","lastName":"Doe"},{"firstName":"Anna","lastName":"Smith"},{"firstName":"Peter","lastName":"Jones"}]}';
+
+      const obj2 = JSON.parse(txt2);
+
+      let demoParagraph = document.getElementById("demo2");
+
+      for (let i = 0; i < obj2.employees.length; i++) {
+        demoParagraph.innerHTML +=
+          obj2.employees[i].firstName +
+          " " +
+          obj2.employees[i].lastName +
+          "<br>";
+      }
+    </script>
+  </body>
+</html>

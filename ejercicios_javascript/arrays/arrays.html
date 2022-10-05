@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JavaScript Arrays</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      const cars = ["Saab", "Volvo", "BMW", "Audi", "Ford"];
+      /**
+       * Mostrar primer elemento según orden alfabetico
+       * **/
+      // cars.sort() ;
+      // document.getElementById("demo").innerHTML = cars[0];
+
+      /**
+       *  Crear una función que recibe como parámetro un array de strings y devuelve el índice del primer elemento según orden alfabético
+       * Dado un array desordenado, devuelve el primer elemento según orden alfabético
+       * **/
+      // document.getElementById("demo").innerHTML =
+      //   primerElementoAlfabetico(cars);
+
+      // function primerElementoAlfabetico(arrayDesordenado) {
+      //   let p = arrayDesordenado[0]; //Saab
+      //   for (let i = 1; i < arrayDesordenado.length; i++) {
+      //     //Evaluar si elemento nº i es primer elemento alfabético
+      //     //Si lo fuera, establecerlo como tal (guardarlo en memoria)
+      //     if (arrayDesordenado[i] < p) {
+      //       p = arrayDesordenado[i];
+      //     }
+      //   }
+      //   return p;
+      // }
+
+      /**
+       * Dado un array desordenado de números positivos enteros, devuelve el número más pequeño
+       * **/
+      //const arrayNumerico = [
+      // 99, 65, 32165, 82, 1, 2, 3, 5, 10, 80, 100, 50, -10, -50,];
+      //document.getElementById("demo").innerHTML = minimo(arrayNumerico);
+      // function minimo(array) {
+      //   let p = array[0];
+      //   for (let i = 0; i < array.length; i++) {
+      //     if (array[i] < p) {
+      //       p = array[i];
+      //     }
+      //   }
+      //   return p;
+      // }
+
+      /**
+       *  Dado un array desordenado de números enteros (positivos y negativos), 
+  devuelve el elemento que se aproxime más a 0.
+       * **/
+      const arrayNumerico = [
+        99, 65, -32165, 82, 1, -2, 3, 5, 10, -80, 100, -50,
+      ];
+      document.getElementById("demo").innerHTML = proximoCero(arrayNumerico);
+      function proximoCero(array) {
+        let p = array[0];
+        for (let i = 0; i < array.length; i++) {
+          if (Math.abs(array[i]) < Math.abs(p)) {
+            p = array[i];
+          }
+        }
+        return p;
+      }
+    </script>
+  </body>
+</html>

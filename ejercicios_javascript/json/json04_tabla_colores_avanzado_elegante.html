@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON - Ejercicio 4 Avanzado</title>
+    <style>
+      table,
+      td {
+        border: 2px solid black;
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tratamiento de strings en formato JSON</h1>
+    <p>
+      Pulsa el siguiente botón para mostrar una tabla con colores (una
+      simulación de haber obtenido una serie de datos del servidor):
+    </p>
+    <button type="button" onclick="mostrarTabla()">Mostrar tabla</button>
+
+    <table></table>
+
+    <script>
+      function mostrarTabla() {
+        const jsonFromServer =
+          '{"aliceblue":[240,248,255,1],"antiquewhite":[250,235,215,1],"aqua":[0,255,255,1],"aquamarine":[127,255,212,1],"azure":[240,255,255,1],"beige":[245,245,220,1],"bisque":[255,228,196,1],"black":[0,0,0,1],"blanchedalmond":[255,235,205,1],"blue":[0,0,255,1],"blueviolet":[138,43,226,1],"brown":[165,42,42,1],"burlywood":[222,184,135,1],"cadetblue":[95,158,160,1],"chartreuse":[127,255,0,1],"chocolate":[210,105,30,1],"coral":[255,127,80,1]}';
+
+        //  Modifica este documento de tal manera que al pulsar el botón se muestre debajo del botón una tabla con dos columnas.
+        // La primera columna estará compuesta por los nombres de cada color (uno por fila/celda),
+        // y la celda adyacente de cada fila mostrará el texto con el código RGBA, y esa celda tendrá un BG-color del color que le corresponda.
+
+        const parsedJsonObj = JSON.parse(jsonFromServer);
+
+        let index = Object.keys(parsedJsonObj);
+        let values = Object.values(parsedJsonObj);
+
+        const miTabla = document.createElement("table");
+        const miDOMdeReferencia = document.getElementsByTagName("body")[0];
+        miDOMdeReferencia.appendChild(miTabla);
+
+        miTabla.style = "width:100%;border:1px solid black";
+
+        for (let i = 0; i < index.length; i++) {
+          let miFila = document.createElement("tr");
+          let miCeldaIzq = document.createElement("td");
+          let miCeldaDer = document.createElement("td");
+          miTabla.appendChild(miFila);
+          miFila.appendChild(miCeldaIzq);
+          miFila.appendChild(miCeldaDer);
+
+          miCeldaIzq.style.border = "1px solid black";
+          miCeldaIzq.innerHTML = index[i];
+
+          miCeldaDer.style.backgroundColor = "rgba(" + values[i] + ")";
+          miCeldaDer.innerHTML = values[i];
+        }
+      }
+    </script>
+  </body>
+</html>

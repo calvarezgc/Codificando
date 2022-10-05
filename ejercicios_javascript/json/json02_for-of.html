@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON - Ejercicio 2 con FOR-OF</title>
+  </head>
+  <body>
+    <h2>Creating an Object from a JSON String</h2>
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+
+    <script>
+      const txt2 =
+        '[\
+  {"companyName":"Facebook","employees":[{"firstName":"John","lastName":"Doe"},{"firstName":"Anna","lastName":"Smith"},{"firstName":"Peter","lastName":"Jones"}],"Boss":"MarkZuckerberg"},\
+  {"companyName":"Google","employees":[{"firstName":"Mikel","lastName":"Iceta"},{"firstName":"Gabriel","lastName":"Rufian"},{"firstName":"Pep","lastName":"Guardiola"}],"Boss":"AjitPai"},\
+  {"companyName":"Microsoft","employees":[{"firstName":"Albert","lastName":"Castillo"},{"firstName":"Francisco Javier","lastName":"Moro"},{"firstName":"Javier","lastName":"Espinosa"}],"Boss":"SteveBozniak"}]';
+
+      const obj2 = JSON.parse(txt2);
+
+      let demoParagraph = document.getElementById("demo2");
+
+      //Solución: imprimir los trabajadores de cada empresa.
+      for (let i = 0; i < obj2.length; i++) {
+        demoParagraph.innerHTML += obj2[i].companyName + ": ";
+
+        let trabajadores = obj2[i].employees;
+        for (const t of trabajadores) {
+          demoParagraph.innerHTML += t.firstName + " " + t.lastName + ", ";
+        }
+
+        demoParagraph.innerHTML += "<br>";
+      }
+    </script>
+  </body>
+</html>

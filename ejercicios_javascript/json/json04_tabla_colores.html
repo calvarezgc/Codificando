@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON - Ejercicio 4</title>
+    <style>
+      table,
+      td {
+        border: 2px solid black;
+        font-weight: bold;
+        text-transform: capitalize;
+      }
+      button {
+        margin-left: 5%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Tratamiento de strings en formato JSON</h1>
+
+    <script>
+      const jsonFromServer =
+        '{"aliceblue":[240,248,255,1],"antiquewhite":[250,235,215,1],"aqua":[0,255,255,1],"aquamarine":[127,255,212,1],"azure":[240,255,255,1],"beige":[245,245,220,1],"bisque":[255,228,196,1],"black":[0,0,0,1],"blanchedalmond":[255,235,205,1],"blue":[0,0,255,1],"blueviolet":[138,43,226,1],"brown":[165,42,42,1],"burlywood":[222,184,135,1],"cadetblue":[95,158,160,1],"chartreuse":[127,255,0,1],"chocolate":[210,105,30,1],"coral":[255,127,80,1]}'; //este es un string
+
+      const parsedJsonObj = JSON.parse(jsonFromServer); //este es un objeto
+
+      //EJERCICIO: Mostrar en pantalla una tabla con los nombres de cada color en una celda, y la celda adyacente mostrará texto con el código RGBA y esa celda tendrá un BG-color del color que le corresponda.
+
+      let nombres = Object.keys(parsedJsonObj);
+      let valores = Object.values(parsedJsonObj);
+
+      document.write("<table>");
+      for (let i = 0; i < valores.length; i++) {
+        document.write(
+          "<tr><td width=120px>" +
+            nombres[i] +
+            "</td><td align=right width=120px style=background-color:rgba(" +
+            valores[i] +
+            ")>" +
+            valores[i] +
+            "</td></tr>"
+        );
+      }
+      document.write("</table>");
+    </script>
+  </body>
+</html>

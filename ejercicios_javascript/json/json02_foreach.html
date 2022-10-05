@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON - Ejercicio 2 con FOREACH</title>
+  </head>
+  <body>
+    <h2>Creating an Object from a JSON String</h2>
+
+    <p id="demo"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+
+    <script>
+      const txt2 =
+        '[{"companyName":"Facebook","employees":[{"firstName":"John","lastName":"Doe"},{"firstName":"Anna","lastName":"Smith"},{"firstName":"Peter","lastName":"Jones"}],"Boss":"MarkZuckerberg"},{"companyName":"Google","employees":[{"firstName":"Mikel","lastName":"Iceta"},{"firstName":"Gabriel","lastName":"Rufian"},{"firstName":"Pep","lastName":"Guardiola"}],"Boss":"AjitPai"},{"companyName":"Microsoft","employees":[{"firstName":"Albert","lastName":"Castillo"},{"firstName":"Francisco Javier","lastName":"Moro"},{"firstName":"Javier","lastName":"Espinosa"}],"Boss":"SteveBozniak"}]';
+
+      const obj2 = JSON.parse(txt2);
+
+      let demoParagraph = document.getElementById("demo");
+      let demoParagraph2 = document.getElementById("demo2");
+      let demoParagraph3 = document.getElementById("demo3");
+      let demoParagraph4 = document.getElementById("demo4");
+
+      //Solución: imprimir los trabajadores de cada empresa.
+
+      for (let i = 0; i < obj2.length; i++) {
+        demoParagraph.innerHTML += obj2[i].companyName + ": ";
+        demoParagraph2.innerHTML += obj2[i].companyName + ": ";
+        demoParagraph3.innerHTML += obj2[i].companyName + ": ";
+        demoParagraph4.innerHTML += obj2[i].companyName + ": ";
+        /***********************************/
+        let trabajadores = obj2[i].employees;
+        for (const [key, value] of Object.entries(trabajadores)) {
+          demoParagraph.innerHTML +=
+            value.firstName + " " + value.lastName + ", ";
+        }
+
+        demoParagraph.innerHTML += "<br>";
+        /***********************************************/
+        Object.entries(trabajadores).forEach((entry) => {
+          const [key, value] = entry;
+          demoParagraph2.innerHTML +=
+            "Key=" + key + " " + value.firstName + " " + value.lastName + ", ";
+        });
+        /****************************************************/
+        Object.values(trabajadores).forEach((val) => {
+          demoParagraph3.innerHTML += val.firstName + " " + val.lastName + ", ";
+        });
+        /******************************************************/
+        Object.keys(trabajadores).forEach((key) => {
+          demoParagraph4.innerHTML +=
+            trabajadores[key].firstName +
+            " " +
+            trabajadores[key].lastName +
+            ", ";
+        });
+        demoParagraph4.innerHTML =
+          demoParagraph4.innerHTML.slice(
+            0,
+            demoParagraph4.innerHTML.length - 2
+          ) + ".<br>";
+      }
+    </script>
+  </body>
+</html>

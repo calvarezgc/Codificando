@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJERCICIO: SEPARA LOS JASON</title>
+  </head>
+  <body>
+    <p>EJERCICIO: SEPARA LOS JASON</p>
+    <!--json 1- Es un objeto compuesto de 12 propiedades, cada una con su valor. -->
+
+    <pre>
+{"aliceblue":"#f0f8ff",
+"antiquewhite":"#faebd7",
+"aqua":"#00ffff",
+"aquamarine":"#7fffd4",
+"azure":"#f0ffff",
+"beige":"#f5f5dc",
+"bisque":"#ffe4c4",
+"black":"#000000",
+"blanchedalmond":"#ffebcd",
+"blue":"#0000ff",
+"blueviolet":"#8a2be2",
+"brown":"#a52a2a"}
+
+<!--json 2 - Es un objeto compuesto de 17 propiedades, cada propiedad tiene un array de valores.-->
+{"aliceblue":[240,248,255,1],
+"antiquewhite":[250,235,215,1],
+"aqua":[0,255,255,1],
+"aquamarine":[127,255,212,1],
+"azure":[240,255,255,1],
+"beige":[245,245,220,1],
+"bisque":[255,228,196,1],
+"black":[0,0,0,1],
+"blanchedalmond":[255,235,205,1],
+"blue":[0,0,255,1],
+"blueviolet":[138,43,226,1],
+"brown":[165,42,42,1],
+"burlywood":[222,184,135,1],
+"cadetblue":[95,158,160,1],
+"chartreuse":[127,255,0,1],
+"chocolate":[210,105,30,1],
+"coral":[255,127,80,1]}
+
+<!--json 3 - Objeto con una propiedad llamada "Colors" el valor ES un array, dentro de ese array tenemos 6 objetos, que se componen de 5 propiedades, cada
+cada una con valores, dentro de la propiedad code. Tenemos 1 objeto con 2 propiedades: RGBA tiene un valor COMPUESTO por un array y HEX que contiene un valor
+de tipo STRING-->
+{"colors":
+    [{"color":"black","category":"hue","type":"primary",
+        "code":
+            {"rgba":[255,255,255,1],"hex":"#000"}},
+    {"color":"white","category":"value",
+        "code":
+            {"rgba":[0,0,0,1],"hex":"#FFF"}},
+    {"color":"red","category":"hue","type":"primary",
+        "code":
+            {"rgba":[255,0,0,1],"hex":"#FF0"}},
+    {"color":"blue","category":"hue","type":"primary",
+        "code":
+            {"rgba":[0,0,255,1],"hex":"#00F"}},
+    {"color":"yellow","category":"hue","type":"primary",
+        "code":
+            {"rgba":[255,255,0,1],"hex":"#FF0"}},
+    {"color":"green","category":"hue","type":"secondary",
+        "code":
+            {"rgba":[0,255,0,1],"hex":"#0F0"}}]}
+
+</pre>
+  </body>
+</html>
