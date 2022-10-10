@@ -10,13 +10,13 @@ Finalmente, escribe un programa que ordene una lista de números de cualquier lo
  * - Si se da el caso de que el elemento [j] es menor que el elemento [i], el algoritmo intercambia sus posiciones (swap).
  * - Dicho de otra manera, en el bucle 'j' se busca el numero más pequeño desde la posición 'i' hasta 'n' (final), y lo coloca en [i].
  * - Dicho de otra manera, el algoritmo va buscando el siguiente número más pequeño al actual en cada bucle.
- * 
+ *
  * El algoritmo "Selection Sort" es muy parecido, pero en lugar de hacer un SWAP cada vez que encuentra un elemento más pequeño que el actual,
  * lo que hace es recordar su posición, y al final del bucle J, hace un único SWAP, ahorrandose muchas operaciones de reasignación.
  * @param {[Number]} array - Array de números enteros desordenados
  * @returns {[Number]} - array ordenado de manera ascendente
  */
- async function badSelectionSort(array) {
+async function badSelectionSort(array) {
   let aux = null; // variable auxiliar para SWAP
 
   for (let i = 0; i < array.length; i++) {
@@ -31,6 +31,8 @@ Finalmente, escribe un programa que ordene una lista de números de cualquier lo
   }
   return array;
 }
+
+//SOLUCIÓN eficiente
 
 async function selectionSort(array) {
   let aux = null; // variable auxiliar para SWAP
@@ -51,7 +53,6 @@ async function selectionSort(array) {
   return array;
 }
 
-
 // DEMOSTRACIÓN 8.4
 console.clear();
 console.log("\nEjercicio 8.4");
@@ -66,10 +67,9 @@ console.time("Execution time of badSelectionSort"); // cronómetro para medir ve
 badSelectionSort(Array.from(numerosDesordenados));
 console.timeEnd("Execution time of badSelectionSort");
 
-
-
+//SOLUCIÓN eficiente
 console.log("Algoritmo selectionSort: ");
-console.time("Execution time of selectionSort"); 
+console.time("Execution time of selectionSort");
 selectionSort(Array.from(numerosDesordenados));
 console.timeEnd("Execution time of selectionSort");
 
@@ -91,10 +91,8 @@ function getRndInteger(min, max) {
 }
 
 function getRndArray(size, min, max) {
-  if (!min)
-    min = 0
-  if (!max)
-    max = 10
+  if (!min) min = 0;
+  if (!max) max = 10;
   let result = [];
   for (let i = 0; i < size; i++) {
     result.push(getRndInteger(min, max));
@@ -103,17 +101,18 @@ function getRndArray(size, min, max) {
 }
 
 function range(min, max) {
-  if (!max)
-    return Array.from(new Array(min), (x, i) => i);
+  if (!max) return Array.from(new Array(min), (x, i) => i);
   return Array.from(new Array(max), (x, i) => i + min);
 }
 
 function randomizeArrayOrder(array) {
-  return array.sort(function (a, b) { return 0.5 - Math.random() });
+  return array.sort(function (a, b) {
+    return 0.5 - Math.random();
+  });
 }
 
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function setCharAt(str, index, chr) {
